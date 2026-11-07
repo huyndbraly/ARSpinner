@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		061BD58E9434433820D340F1 /* ContinuousSpinPhysicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43329FCD268D53C84DA9772 /* ContinuousSpinPhysicsTests.swift */; };
+		0B9F128626CEE653C6829808 /* USDZSpinnerEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D851471E39E24FF33B6B7D52 /* USDZSpinnerEntityFactory.swift */; };
+		13F52BBC70ABC282857DDFFB /* Spinner4.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8AD117CA8943ED9ACE8EBDD2 /* Spinner4.usdz */; };
+		17919403C0376E5CBDF32D6E /* Spinner.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 60C46E49411D6920B1746908 /* Spinner.usdz */; };
+		18030E5E9D96EDA86507762D /* SafeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C27862B86E7180C9C99C8A /* SafeTransform.swift */; };
+		19125B0A93BC3608B7EA3D03 /* TorchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D86C415F2E073CF08F9D3 /* TorchService.swift */; };
+		1CDDF5AEEDCFB83BE8099C71 /* ARExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9302436EC385B8A617E32A /* ARExperienceView.swift */; };
+		1F443F4FFB16CBB01FDAFE6F /* InteractionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7211E3BA42DDBE1DE4618D /* InteractionStateMachine.swift */; };
+		2328161B8F7EB019E4F83ADB /* ARSpinnerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B861C1A026807F5F04192 /* ARSpinnerApp.swift */; };
+		244501887A95A0D98DB387D6 /* SpinnerSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D8036F1EFE0CEC8F490D8 /* SpinnerSelectionManager.swift */; };
+		2A2FAEBD9ABB26F887B8798F /* Spinner3DPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0695E9D70B09E03691161A4 /* Spinner3DPreviewView.swift */; };
+		2A59512762B25560A73862FD /* SpinnerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC66D92E521C17B2A45790 /* SpinnerConfiguration.swift */; };
+		2B8D5A9BE47031E4E4177F1C /* QuaternionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9541FD3D92784A058EF01E /* QuaternionHelper.swift */; };
+		2DD5FC78E102B9ABB9DD38BE /* FrictionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF08C3093D61DC028996EFB /* FrictionModel.swift */; };
+		34CFA4308ACE63C85793FBFD /* ARSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF65E0853B0DB1852493C6A /* ARSessionCoordinator.swift */; };
+		34FC8E15978D0A5FAE685EC9 /* PhysicsParameterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAC2BB3647452263BB38205 /* PhysicsParameterInfo.swift */; };
+		3CB8D8E56DA23382415F50BB /* SwipeImpulseCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E43D77D070FC169F4A47A8 /* SwipeImpulseCalculator.swift */; };
+		3D95333D105E20499572407C /* SpinnerEntityProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B4BBC0E1B0F47C53A8A7A /* SpinnerEntityProviding.swift */; };
+		3E4D3285B86C2AA05F44F3EB /* SpinnerSizeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED8A9E1F5131324F0B0C2E /* SpinnerSizeControlView.swift */; };
+		3F399C3E6BA5160B4F70A79C /* PhysicsConfigSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876F4B65DD4AD4C9292BA740 /* PhysicsConfigSheet.swift */; };
+		410CB9733540B1E21FAA9932 /* LocalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51FF66DFC6E7BDE28F0D5A /* LocalizationServiceTests.swift */; };
+		423AF23099B338A9EB177346 /* SpinnerHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9083FE29D3A7ABD635DD1 /* SpinnerHUD.swift */; };
+		481CF93289C2FFEAF7E5EBF9 /* SafeTransformAndNumericalSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C157106DEFF854BB31E12FA /* SafeTransformAndNumericalSafetyTests.swift */; };
+		4DC24FE3CE224C009AAF6925 /* AngularMotionSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8492B1B1427263B6B5F668F /* AngularMotionSolver.swift */; };
+		54C0254A08FFA64537AEEA95 /* AudioAndSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992CEA493886A76BBD27226 /* AudioAndSettingsTests.swift */; };
+		57C51E6EE78DE5ABF52CBEAC /* SpinnerModelDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA9E841BE041EDE6FE7753 /* SpinnerModelDescriptor.swift */; };
+		5D06BA66CDBA9FDFBAD4683C /* SceneUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E481398AECD8991447D821 /* SceneUpdateController.swift */; };
+		5F3628995E71BCBAD12B6675 /* SpinnerPhysicsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B40DC77D1E4D4E949BB8F /* SpinnerPhysicsEngineTests.swift */; };
+		5F576235B6CFE7FE1E36099E /* SpinnerSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF61B935C5A1D4A1AB74918 /* SpinnerSceneController.swift */; };
+		650A33ADE6BBA211EE90308E /* SpinnerPhysicsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF222061221456A36155C5 /* SpinnerPhysicsEngine.swift */; };
+		6F8FF0EB869B9B47FB3D5538 /* ModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF725405D38D945FF7FE892C /* ModeSelector.swift */; };
+		718B7A8C63A9DF6B9106FD68 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E589F566CF0FAB6E8B86CA /* AppEnvironment.swift */; };
+		71ED512CA21DDD920DDC0CD0 /* ARRaycastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9975BC4C65473A8BFA2780CA /* ARRaycastManager.swift */; };
+		78285CD7B628B2A5E30B630A /* ARExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05BEC1A0FD313C14EE84FC /* ARExperienceViewModel.swift */; };
+		7AC5B8E9CA7CE8FDA506C2E2 /* SpinnerGestureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260BC820AA33117019092CE /* SpinnerGestureController.swift */; };
+		813FD0172A8502B00DB76BE2 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621DD38B93C3A6D22CD33E6 /* LocalizationService.swift */; };
+		84098DA54A80BC7E93468F45 /* SpinnerAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988CF0A8A230A582FDB3F24 /* SpinnerAnchorManager.swift */; };
+		877FBF141B21C55A9D55FFC6 /* Spinner7.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D26297F39D058B008205EE01 /* Spinner7.usdz */; };
+		8BDEB3D18FE6775C4F310B79 /* SpinMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B1329800B9B29E03B5EF1 /* SpinMode.swift */; };
+		8C61D7C5B60E14FED10F7021 /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBCF7C2786BCD312034E824 /* HapticFeedbackService.swift */; };
+		8E22B2C6084EED657607F770 /* ContinuousTorqueAndDragTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946F13BDDDBB4C1FCFF19DE /* ContinuousTorqueAndDragTests.swift */; };
+		9114C77BD2F6E3C79B3DE640 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD1825FB78905BB68A38995 /* HomeView.swift */; };
+		92636EB0AEE73928B3CC0895 /* RayVolumeHitTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1F2F1C52EF881AAC0E16F /* RayVolumeHitTestingTests.swift */; };
+		9417065CF38879DF9B0D7515 /* SpinnerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5739FBA3B59B3EE37ABDBB2B /* SpinnerMode.swift */; };
+		9BAAFBADC853ED5948159B77 /* ARControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0BF55FE84A49D244ECB3DC /* ARControlPanel.swift */; };
+		9CA0A21F06503EE200D30220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8265CEA33524FBA2D84E8A31 /* Assets.xcassets */; };
+		A6E503B0BD6587823D72F791 /* AudioFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45DC2026227EA3D95F4C738 /* AudioFeedbackService.swift */; };
+		A9C1B0A2E7C6CECBFA405207 /* PlacementIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3171FFFCAC80355844EF825 /* PlacementIndicatorView.swift */; };
+		AA12330AE9BF73AED3C80BA4 /* Spinner6.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2950D1B56D684729C7C90BB3 /* Spinner6.usdz */; };
+		AC6B7FE10C6BB537410D8F22 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE609FF2FC2C4FC139D7061 /* ARViewContainer.swift */; };
+		AD8B8EBFE68EE20D7F5F600F /* SpinnerPhysicsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B80B6A24A44D941FC9B6BE /* SpinnerPhysicsState.swift */; };
+		AE996AFD90E4E48E9DFE378B /* SpinnerCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F690A17775FDEB92729701 /* SpinnerCatalog.swift */; };
+		BD439A6E3D64310334643BED /* InertiaCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FAC8482FFCA4548DD9118D /* InertiaCalculator.swift */; };
+		BE988A681CA56CD8109938A0 /* SpinnerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85CAD318DC298D0D787C67A /* SpinnerState.swift */; };
+		BF663AB16255BDC14DDDA03F /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC60ECB87CDCCD480ACA66C /* PermissionView.swift */; };
+		C1900F441C96E4A52C6FDA9A /* PlaneDetectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C5B695E80F550D9B2D6959 /* PlaneDetectionManager.swift */; };
+		CB1DC4A33EF4BBC69ED12275 /* PhysicsParameterInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55BD96535669382118856 /* PhysicsParameterInfoSheet.swift */; };
+		CED35F3E64D0C86209B1E5E5 /* Spinner8.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F89416D07315AE92FEAA7BF0 /* Spinner8.usdz */; };
+		D19055C63B5F9E4DA30FA516 /* SwipeImpulseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E87F70B39A9ECBF1AC9762 /* SwipeImpulseCalculatorTests.swift */; };
+		D675B3FD67B5E56CFD20170B /* SpinnerCatalogAndSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE5B9F9935A0D7ECF5145F /* SpinnerCatalogAndSelectionTests.swift */; };
+		E35DE7F6A94F3F4E1AC27E42 /* ARPlacementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB58421FEFE250539D91B6D /* ARPlacementManager.swift */; };
+		ED78D9F4C282CC75F5280BF4 /* SpinnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF838637CD9C5FDF2212F86 /* SpinnerCardView.swift */; };
+		EFE6E316621A996CE420968E /* TouchProjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B5607CC1DAB56E56EB51D /* TouchProjector.swift */; };
+		F3982B475C75C6273E0EA6AC /* Spinner5.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 69CC7D09B282B2B0B31C3896 /* Spinner5.usdz */; };
+		F4D8F3117BB247F3E3BE66DB /* SpinnerSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70421F32A2A62C1EAB30E7F9 /* SpinnerSelectionSheet.swift */; };
+		F5172C6F606D564AEB27CC85 /* Spinner3.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 19DE433190D3D5662B1126A3 /* Spinner3.usdz */; };
+		F6476990F3D8AE905317FB3E /* VectorMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE34F210EF7975A24C93845 /* VectorMathTests.swift */; };
+		F6EE6AB246FAB8CE092438E6 /* SpinnerEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98460397C8D25ADFE73C6AE3 /* SpinnerEntityFactory.swift */; };
+		F86AFE0CA4B0D7319E359372 /* Spinner2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D71CCBCDA8406FA18C3F914C /* Spinner2.usdz */; };
+		FA0019D2BBD1DFE12D9143F0 /* ModelNormalizationAndResizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D028572BBFA81B5BD0A726 /* ModelNormalizationAndResizeTests.swift */; };
+		FC3900DA123CD013695B9E7E /* VectorMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454A315593201BE9A89DAE7 /* VectorMath.swift */; };
+		FDB9FE62B1E1203B1FB77384 /* ProceduralMeshHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A461B9961B291FD3C66066 /* ProceduralMeshHelper.swift */; };
+		FE4AD9D9CBB2781900E0C0CD /* TouchAndGestureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B0EB0393E57E7BF68A296 /* TouchAndGestureTests.swift */; };
+		FFA0C5ECF3494D145C879C87 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE4EE7B9B77EDE02C76B /* Logger.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D264B440086B01BB462CFDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973B041DE9F4CCE52EAEBF7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B6E5EE4C7CD9F01B7F1B498;
+			remoteInfo = ARSpinner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BF838637CD9C5FDF2212F86 /* SpinnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCardView.swift; sourceTree = "<group>"; };
+		0FD1825FB78905BB68A38995 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		15C27862B86E7180C9C99C8A /* SafeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTransform.swift; sourceTree = "<group>"; };
+		1621DD38B93C3A6D22CD33E6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
+		1906E1BF9B22D0ECEDD4F1E2 /* ARSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19DE433190D3D5662B1126A3 /* Spinner3.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner3.usdz; sourceTree = "<group>"; };
+		21B80B6A24A44D941FC9B6BE /* SpinnerPhysicsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerPhysicsState.swift; sourceTree = "<group>"; };
+		27E43D77D070FC169F4A47A8 /* SwipeImpulseCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeImpulseCalculator.swift; sourceTree = "<group>"; };
+		28A461B9961B291FD3C66066 /* ProceduralMeshHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduralMeshHelper.swift; sourceTree = "<group>"; };
+		2950D1B56D684729C7C90BB3 /* Spinner6.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner6.usdz; sourceTree = "<group>"; };
+		3083CE4EE7B9B77EDE02C76B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		41FAC8482FFCA4548DD9118D /* InertiaCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InertiaCalculator.swift; sourceTree = "<group>"; };
+		427B5607CC1DAB56E56EB51D /* TouchProjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchProjector.swift; sourceTree = "<group>"; };
+		43AE5B9F9935A0D7ECF5145F /* SpinnerCatalogAndSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCatalogAndSelectionTests.swift; sourceTree = "<group>"; };
+		4946F13BDDDBB4C1FCFF19DE /* ContinuousTorqueAndDragTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousTorqueAndDragTests.swift; sourceTree = "<group>"; };
+		4BE609FF2FC2C4FC139D7061 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		55E589F566CF0FAB6E8B86CA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		5739FBA3B59B3EE37ABDBB2B /* SpinnerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerMode.swift; sourceTree = "<group>"; };
+		5DF61B935C5A1D4A1AB74918 /* SpinnerSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSceneController.swift; sourceTree = "<group>"; };
+		60C46E49411D6920B1746908 /* Spinner.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner.usdz; sourceTree = "<group>"; };
+		69CC7D09B282B2B0B31C3896 /* Spinner5.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner5.usdz; sourceTree = "<group>"; };
+		6BBCF7C2786BCD312034E824 /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
+		6F51FF66DFC6E7BDE28F0D5A /* LocalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationServiceTests.swift; sourceTree = "<group>"; };
+		70421F32A2A62C1EAB30E7F9 /* SpinnerSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSelectionSheet.swift; sourceTree = "<group>"; };
+		71F1F2F1C52EF881AAC0E16F /* RayVolumeHitTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayVolumeHitTestingTests.swift; sourceTree = "<group>"; };
+		7992CEA493886A76BBD27226 /* AudioAndSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndSettingsTests.swift; sourceTree = "<group>"; };
+		7A05BEC1A0FD313C14EE84FC /* ARExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExperienceViewModel.swift; sourceTree = "<group>"; };
+		7AED8A9E1F5131324F0B0C2E /* SpinnerSizeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSizeControlView.swift; sourceTree = "<group>"; };
+		7C157106DEFF854BB31E12FA /* SafeTransformAndNumericalSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTransformAndNumericalSafetyTests.swift; sourceTree = "<group>"; };
+		7F3BD23A8E10EB26BA133496 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8265CEA33524FBA2D84E8A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83D028572BBFA81B5BD0A726 /* ModelNormalizationAndResizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNormalizationAndResizeTests.swift; sourceTree = "<group>"; };
+		876F4B65DD4AD4C9292BA740 /* PhysicsConfigSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsConfigSheet.swift; sourceTree = "<group>"; };
+		879B861C1A026807F5F04192 /* ARSpinnerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSpinnerApp.swift; sourceTree = "<group>"; };
+		8988CF0A8A230A582FDB3F24 /* SpinnerAnchorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnchorManager.swift; sourceTree = "<group>"; };
+		8AD117CA8943ED9ACE8EBDD2 /* Spinner4.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner4.usdz; sourceTree = "<group>"; };
+		8B9B40DC77D1E4D4E949BB8F /* SpinnerPhysicsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerPhysicsEngineTests.swift; sourceTree = "<group>"; };
+		8BE55BD96535669382118856 /* PhysicsParameterInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsParameterInfoSheet.swift; sourceTree = "<group>"; };
+		8CAC2BB3647452263BB38205 /* PhysicsParameterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsParameterInfo.swift; sourceTree = "<group>"; };
+		8D8D8036F1EFE0CEC8F490D8 /* SpinnerSelectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSelectionManager.swift; sourceTree = "<group>"; };
+		8DF65E0853B0DB1852493C6A /* ARSessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionCoordinator.swift; sourceTree = "<group>"; };
+		8E0BF55FE84A49D244ECB3DC /* ARControlPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARControlPanel.swift; sourceTree = "<group>"; };
+		98460397C8D25ADFE73C6AE3 /* SpinnerEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerEntityFactory.swift; sourceTree = "<group>"; };
+		9975BC4C65473A8BFA2780CA /* ARRaycastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRaycastManager.swift; sourceTree = "<group>"; };
+		997D86C415F2E073CF08F9D3 /* TorchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchService.swift; sourceTree = "<group>"; };
+		99F690A17775FDEB92729701 /* SpinnerCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCatalog.swift; sourceTree = "<group>"; };
+		9BF08C3093D61DC028996EFB /* FrictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionModel.swift; sourceTree = "<group>"; };
+		9DC60ECB87CDCCD480ACA66C /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		AE9302436EC385B8A617E32A /* ARExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExperienceView.swift; sourceTree = "<group>"; };
+		AF7211E3BA42DDBE1DE4618D /* InteractionStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionStateMachine.swift; sourceTree = "<group>"; };
+		B3171FFFCAC80355844EF825 /* PlacementIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementIndicatorView.swift; sourceTree = "<group>"; };
+		C0162E8998CD802D9FB8CF4C /* ARSpinnerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ARSpinnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C43329FCD268D53C84DA9772 /* ContinuousSpinPhysicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousSpinPhysicsTests.swift; sourceTree = "<group>"; };
+		C45DC2026227EA3D95F4C738 /* AudioFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFeedbackService.swift; sourceTree = "<group>"; };
+		C8E87F70B39A9ECBF1AC9762 /* SwipeImpulseCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeImpulseCalculatorTests.swift; sourceTree = "<group>"; };
+		D260BC820AA33117019092CE /* SpinnerGestureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerGestureController.swift; sourceTree = "<group>"; };
+		D26297F39D058B008205EE01 /* Spinner7.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner7.usdz; sourceTree = "<group>"; };
+		D31B4BBC0E1B0F47C53A8A7A /* SpinnerEntityProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerEntityProviding.swift; sourceTree = "<group>"; };
+		D4C5B695E80F550D9B2D6959 /* PlaneDetectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectionManager.swift; sourceTree = "<group>"; };
+		D71CCBCDA8406FA18C3F914C /* Spinner2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner2.usdz; sourceTree = "<group>"; };
+		D7AF222061221456A36155C5 /* SpinnerPhysicsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerPhysicsEngine.swift; sourceTree = "<group>"; };
+		D8492B1B1427263B6B5F668F /* AngularMotionSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularMotionSolver.swift; sourceTree = "<group>"; };
+		D851471E39E24FF33B6B7D52 /* USDZSpinnerEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZSpinnerEntityFactory.swift; sourceTree = "<group>"; };
+		D8AA9E841BE041EDE6FE7753 /* SpinnerModelDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerModelDescriptor.swift; sourceTree = "<group>"; };
+		DF725405D38D945FF7FE892C /* ModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelector.swift; sourceTree = "<group>"; };
+		DFE34F210EF7975A24C93845 /* VectorMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorMathTests.swift; sourceTree = "<group>"; };
+		E0695E9D70B09E03691161A4 /* Spinner3DPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner3DPreviewView.swift; sourceTree = "<group>"; };
+		E1BC66D92E521C17B2A45790 /* SpinnerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerConfiguration.swift; sourceTree = "<group>"; };
+		E1E481398AECD8991447D821 /* SceneUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneUpdateController.swift; sourceTree = "<group>"; };
+		E8B9083FE29D3A7ABD635DD1 /* SpinnerHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerHUD.swift; sourceTree = "<group>"; };
+		EF9541FD3D92784A058EF01E /* QuaternionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaternionHelper.swift; sourceTree = "<group>"; };
+		EFB58421FEFE250539D91B6D /* ARPlacementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlacementManager.swift; sourceTree = "<group>"; };
+		F454A315593201BE9A89DAE7 /* VectorMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorMath.swift; sourceTree = "<group>"; };
+		F76B0EB0393E57E7BF68A296 /* TouchAndGestureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchAndGestureTests.swift; sourceTree = "<group>"; };
+		F85CAD318DC298D0D787C67A /* SpinnerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerState.swift; sourceTree = "<group>"; };
+		F89416D07315AE92FEAA7BF0 /* Spinner8.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner8.usdz; sourceTree = "<group>"; };
+		FE0B1329800B9B29E03B5EF1 /* SpinMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinMode.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0030A333CC3DD422B50D605F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				28A461B9961B291FD3C66066 /* ProceduralMeshHelper.swift */,
+				E1E481398AECD8991447D821 /* SceneUpdateController.swift */,
+				8988CF0A8A230A582FDB3F24 /* SpinnerAnchorManager.swift */,
+				98460397C8D25ADFE73C6AE3 /* SpinnerEntityFactory.swift */,
+				D31B4BBC0E1B0F47C53A8A7A /* SpinnerEntityProviding.swift */,
+				5DF61B935C5A1D4A1AB74918 /* SpinnerSceneController.swift */,
+				D851471E39E24FF33B6B7D52 /* USDZSpinnerEntityFactory.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		28C68EC81B2D96E7322A5BF0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				598F9A699B02635ADFE84976 /* Components */,
+				9918D509365C676B90C4F659 /* Screens */,
+				6DA92537CC71E30537911E52 /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2C0A2D130FD99A8BB049F0DC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				55E589F566CF0FAB6E8B86CA /* AppEnvironment.swift */,
+				879B861C1A026807F5F04192 /* ARSpinnerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2DFCBD81C2BFB7F090AB233E /* Interaction */ = {
+			isa = PBXGroup;
+			children = (
+				AF7211E3BA42DDBE1DE4618D /* InteractionStateMachine.swift */,
+				D260BC820AA33117019092CE /* SpinnerGestureController.swift */,
+				27E43D77D070FC169F4A47A8 /* SwipeImpulseCalculator.swift */,
+				427B5607CC1DAB56E56EB51D /* TouchProjector.swift */,
+			);
+			path = Interaction;
+			sourceTree = "<group>";
+		};
+		3412438CB741142EF1758F28 /* ARSpinnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7992CEA493886A76BBD27226 /* AudioAndSettingsTests.swift */,
+				C43329FCD268D53C84DA9772 /* ContinuousSpinPhysicsTests.swift */,
+				4946F13BDDDBB4C1FCFF19DE /* ContinuousTorqueAndDragTests.swift */,
+				6F51FF66DFC6E7BDE28F0D5A /* LocalizationServiceTests.swift */,
+				83D028572BBFA81B5BD0A726 /* ModelNormalizationAndResizeTests.swift */,
+				71F1F2F1C52EF881AAC0E16F /* RayVolumeHitTestingTests.swift */,
+				7C157106DEFF854BB31E12FA /* SafeTransformAndNumericalSafetyTests.swift */,
+				43AE5B9F9935A0D7ECF5145F /* SpinnerCatalogAndSelectionTests.swift */,
+				8B9B40DC77D1E4D4E949BB8F /* SpinnerPhysicsEngineTests.swift */,
+				C8E87F70B39A9ECBF1AC9762 /* SwipeImpulseCalculatorTests.swift */,
+				F76B0EB0393E57E7BF68A296 /* TouchAndGestureTests.swift */,
+				DFE34F210EF7975A24C93845 /* VectorMathTests.swift */,
+			);
+			name = ARSpinnerTests;
+			path = Tests/ARSpinnerTests;
+			sourceTree = "<group>";
+		};
+		34159C696E12AA9D9AC53855 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1906E1BF9B22D0ECEDD4F1E2 /* ARSpinner.app */,
+				C0162E8998CD802D9FB8CF4C /* ARSpinnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		416F791B8D7244CBA8B6EA30 = {
+			isa = PBXGroup;
+			children = (
+				D351E590102632FF1EF52D40 /* ARSpinner */,
+				3412438CB741142EF1758F28 /* ARSpinnerTests */,
+				34159C696E12AA9D9AC53855 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		598F9A699B02635ADFE84976 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8E0BF55FE84A49D244ECB3DC /* ARControlPanel.swift */,
+				DF725405D38D945FF7FE892C /* ModeSelector.swift */,
+				9DC60ECB87CDCCD480ACA66C /* PermissionView.swift */,
+				876F4B65DD4AD4C9292BA740 /* PhysicsConfigSheet.swift */,
+				8CAC2BB3647452263BB38205 /* PhysicsParameterInfo.swift */,
+				8BE55BD96535669382118856 /* PhysicsParameterInfoSheet.swift */,
+				B3171FFFCAC80355844EF825 /* PlacementIndicatorView.swift */,
+				E0695E9D70B09E03691161A4 /* Spinner3DPreviewView.swift */,
+				0BF838637CD9C5FDF2212F86 /* SpinnerCardView.swift */,
+				E8B9083FE29D3A7ABD635DD1 /* SpinnerHUD.swift */,
+				70421F32A2A62C1EAB30E7F9 /* SpinnerSelectionSheet.swift */,
+				7AED8A9E1F5131324F0B0C2E /* SpinnerSizeControlView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5B11998CC4311ACF1C1855B1 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				EFB58421FEFE250539D91B6D /* ARPlacementManager.swift */,
+				9975BC4C65473A8BFA2780CA /* ARRaycastManager.swift */,
+				8DF65E0853B0DB1852493C6A /* ARSessionCoordinator.swift */,
+				4BE609FF2FC2C4FC139D7061 /* ARViewContainer.swift */,
+				D4C5B695E80F550D9B2D6959 /* PlaneDetectionManager.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		6C7DB25F64C138E829C32A7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8265CEA33524FBA2D84E8A31 /* Assets.xcassets */,
+				60C46E49411D6920B1746908 /* Spinner.usdz */,
+				D71CCBCDA8406FA18C3F914C /* Spinner2.usdz */,
+				19DE433190D3D5662B1126A3 /* Spinner3.usdz */,
+				8AD117CA8943ED9ACE8EBDD2 /* Spinner4.usdz */,
+				69CC7D09B282B2B0B31C3896 /* Spinner5.usdz */,
+				2950D1B56D684729C7C90BB3 /* Spinner6.usdz */,
+				D26297F39D058B008205EE01 /* Spinner7.usdz */,
+				F89416D07315AE92FEAA7BF0 /* Spinner8.usdz */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6DA92537CC71E30537911E52 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7A05BEC1A0FD313C14EE84FC /* ARExperienceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9918D509365C676B90C4F659 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AE9302436EC385B8A617E32A /* ARExperienceView.swift */,
+				0FD1825FB78905BB68A38995 /* HomeView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B41F89F9947A6E850CD72F2B /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				99F690A17775FDEB92729701 /* SpinnerCatalog.swift */,
+				D8AA9E841BE041EDE6FE7753 /* SpinnerModelDescriptor.swift */,
+				8D8D8036F1EFE0CEC8F490D8 /* SpinnerSelectionManager.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		C3BB4D88013FF982EC714360 /* AudioHaptics */ = {
+			isa = PBXGroup;
+			children = (
+				C45DC2026227EA3D95F4C738 /* AudioFeedbackService.swift */,
+				6BBCF7C2786BCD312034E824 /* HapticFeedbackService.swift */,
+			);
+			path = AudioHaptics;
+			sourceTree = "<group>";
+		};
+		C5E36CEF9F27905BA3A43FD3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1621DD38B93C3A6D22CD33E6 /* LocalizationService.swift */,
+				3083CE4EE7B9B77EDE02C76B /* Logger.swift */,
+				EF9541FD3D92784A058EF01E /* QuaternionHelper.swift */,
+				15C27862B86E7180C9C99C8A /* SafeTransform.swift */,
+				997D86C415F2E073CF08F9D3 /* TorchService.swift */,
+				F454A315593201BE9A89DAE7 /* VectorMath.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D351E590102632FF1EF52D40 /* ARSpinner */ = {
+			isa = PBXGroup;
+			children = (
+				7F3BD23A8E10EB26BA133496 /* Info.plist */,
+				2C0A2D130FD99A8BB049F0DC /* App */,
+				5B11998CC4311ACF1C1855B1 /* AR */,
+				C3BB4D88013FF982EC714360 /* AudioHaptics */,
+				B41F89F9947A6E850CD72F2B /* Catalog */,
+				2DFCBD81C2BFB7F090AB233E /* Interaction */,
+				D5F67DDDB346C14B45CAF564 /* Models */,
+				DF60BCAD9ECE1360CE6F1640 /* Physics */,
+				28C68EC81B2D96E7322A5BF0 /* Presentation */,
+				6C7DB25F64C138E829C32A7F /* Resources */,
+				0030A333CC3DD422B50D605F /* Scene */,
+				C5E36CEF9F27905BA3A43FD3 /* Utilities */,
+			);
+			path = ARSpinner;
+			sourceTree = "<group>";
+		};
+		D5F67DDDB346C14B45CAF564 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE0B1329800B9B29E03B5EF1 /* SpinMode.swift */,
+				E1BC66D92E521C17B2A45790 /* SpinnerConfiguration.swift */,
+				5739FBA3B59B3EE37ABDBB2B /* SpinnerMode.swift */,
+				F85CAD318DC298D0D787C67A /* SpinnerState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DF60BCAD9ECE1360CE6F1640 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				D8492B1B1427263B6B5F668F /* AngularMotionSolver.swift */,
+				9BF08C3093D61DC028996EFB /* FrictionModel.swift */,
+				41FAC8482FFCA4548DD9118D /* InertiaCalculator.swift */,
+				D7AF222061221456A36155C5 /* SpinnerPhysicsEngine.swift */,
+				21B80B6A24A44D941FC9B6BE /* SpinnerPhysicsState.swift */,
+			);
+			path = Physics;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B6E5EE4C7CD9F01B7F1B498 /* ARSpinner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8C3E53B8EB5DF2AAAC2380 /* Build configuration list for PBXNativeTarget "ARSpinner" */;
+			buildPhases = (
+				82C5E56F9D429E85BADD225A /* Sources */,
+				E157AA71BFAEF7BE78ACCCAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARSpinner;
+			packageProductDependencies = (
+			);
+			productName = ARSpinner;
+			productReference = 1906E1BF9B22D0ECEDD4F1E2 /* ARSpinner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E03648FEDC29C8726F217304 /* ARSpinnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16055EB89799B9569A181258 /* Build configuration list for PBXNativeTarget "ARSpinnerTests" */;
+			buildPhases = (
+				DB55583F44A99960CAC6C42D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86BD3334A2411E907ED6609F /* PBXTargetDependency */,
+			);
+			name = ARSpinnerTests;
+			packageProductDependencies = (
+			);
+			productName = ARSpinnerTests;
+			productReference = C0162E8998CD802D9FB8CF4C /* ARSpinnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		973B041DE9F4CCE52EAEBF7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 2EF7DA9622B7D84FDB9B6D48 /* Build configuration list for PBXProject "ARSpinner" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 416F791B8D7244CBA8B6EA30;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 34159C696E12AA9D9AC53855 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B6E5EE4C7CD9F01B7F1B498 /* ARSpinner */,
+				E03648FEDC29C8726F217304 /* ARSpinnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E157AA71BFAEF7BE78ACCCAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CA0A21F06503EE200D30220 /* Assets.xcassets in Resources */,
+				17919403C0376E5CBDF32D6E /* Spinner.usdz in Resources */,
+				F86AFE0CA4B0D7319E359372 /* Spinner2.usdz in Resources */,
+				F5172C6F606D564AEB27CC85 /* Spinner3.usdz in Resources */,
+				13F52BBC70ABC282857DDFFB /* Spinner4.usdz in Resources */,
+				F3982B475C75C6273E0EA6AC /* Spinner5.usdz in Resources */,
+				AA12330AE9BF73AED3C80BA4 /* Spinner6.usdz in Resources */,
+				877FBF141B21C55A9D55FFC6 /* Spinner7.usdz in Resources */,
+				CED35F3E64D0C86209B1E5E5 /* Spinner8.usdz in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82C5E56F9D429E85BADD225A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BAAFBADC853ED5948159B77 /* ARControlPanel.swift in Sources */,
+				1CDDF5AEEDCFB83BE8099C71 /* ARExperienceView.swift in Sources */,
+				78285CD7B628B2A5E30B630A /* ARExperienceViewModel.swift in Sources */,
+				E35DE7F6A94F3F4E1AC27E42 /* ARPlacementManager.swift in Sources */,
+				71ED512CA21DDD920DDC0CD0 /* ARRaycastManager.swift in Sources */,
+				34CFA4308ACE63C85793FBFD /* ARSessionCoordinator.swift in Sources */,
+				2328161B8F7EB019E4F83ADB /* ARSpinnerApp.swift in Sources */,
+				AC6B7FE10C6BB537410D8F22 /* ARViewContainer.swift in Sources */,
+				4DC24FE3CE224C009AAF6925 /* AngularMotionSolver.swift in Sources */,
+				718B7A8C63A9DF6B9106FD68 /* AppEnvironment.swift in Sources */,
+				A6E503B0BD6587823D72F791 /* AudioFeedbackService.swift in Sources */,
+				2DD5FC78E102B9ABB9DD38BE /* FrictionModel.swift in Sources */,
+				8C61D7C5B60E14FED10F7021 /* HapticFeedbackService.swift in Sources */,
+				9114C77BD2F6E3C79B3DE640 /* HomeView.swift in Sources */,
+				BD439A6E3D64310334643BED /* InertiaCalculator.swift in Sources */,
+				1F443F4FFB16CBB01FDAFE6F /* InteractionStateMachine.swift in Sources */,
+				813FD0172A8502B00DB76BE2 /* LocalizationService.swift in Sources */,
+				FFA0C5ECF3494D145C879C87 /* Logger.swift in Sources */,
+				6F8FF0EB869B9B47FB3D5538 /* ModeSelector.swift in Sources */,
+				BF663AB16255BDC14DDDA03F /* PermissionView.swift in Sources */,
+				3F399C3E6BA5160B4F70A79C /* PhysicsConfigSheet.swift in Sources */,
+				34FC8E15978D0A5FAE685EC9 /* PhysicsParameterInfo.swift in Sources */,
+				CB1DC4A33EF4BBC69ED12275 /* PhysicsParameterInfoSheet.swift in Sources */,
+				A9C1B0A2E7C6CECBFA405207 /* PlacementIndicatorView.swift in Sources */,
+				C1900F441C96E4A52C6FDA9A /* PlaneDetectionManager.swift in Sources */,
+				FDB9FE62B1E1203B1FB77384 /* ProceduralMeshHelper.swift in Sources */,
+				2B8D5A9BE47031E4E4177F1C /* QuaternionHelper.swift in Sources */,
+				18030E5E9D96EDA86507762D /* SafeTransform.swift in Sources */,
+				5D06BA66CDBA9FDFBAD4683C /* SceneUpdateController.swift in Sources */,
+				8BDEB3D18FE6775C4F310B79 /* SpinMode.swift in Sources */,
+				2A2FAEBD9ABB26F887B8798F /* Spinner3DPreviewView.swift in Sources */,
+				84098DA54A80BC7E93468F45 /* SpinnerAnchorManager.swift in Sources */,
+				ED78D9F4C282CC75F5280BF4 /* SpinnerCardView.swift in Sources */,
+				AE996AFD90E4E48E9DFE378B /* SpinnerCatalog.swift in Sources */,
+				2A59512762B25560A73862FD /* SpinnerConfiguration.swift in Sources */,
+				F6EE6AB246FAB8CE092438E6 /* SpinnerEntityFactory.swift in Sources */,
+				3D95333D105E20499572407C /* SpinnerEntityProviding.swift in Sources */,
+				7AC5B8E9CA7CE8FDA506C2E2 /* SpinnerGestureController.swift in Sources */,
+				423AF23099B338A9EB177346 /* SpinnerHUD.swift in Sources */,
+				9417065CF38879DF9B0D7515 /* SpinnerMode.swift in Sources */,
+				57C51E6EE78DE5ABF52CBEAC /* SpinnerModelDescriptor.swift in Sources */,
+				650A33ADE6BBA211EE90308E /* SpinnerPhysicsEngine.swift in Sources */,
+				AD8B8EBFE68EE20D7F5F600F /* SpinnerPhysicsState.swift in Sources */,
+				5F576235B6CFE7FE1E36099E /* SpinnerSceneController.swift in Sources */,
+				244501887A95A0D98DB387D6 /* SpinnerSelectionManager.swift in Sources */,
+				F4D8F3117BB247F3E3BE66DB /* SpinnerSelectionSheet.swift in Sources */,
+				3E4D3285B86C2AA05F44F3EB /* SpinnerSizeControlView.swift in Sources */,
+				BE988A681CA56CD8109938A0 /* SpinnerState.swift in Sources */,
+				3CB8D8E56DA23382415F50BB /* SwipeImpulseCalculator.swift in Sources */,
+				19125B0A93BC3608B7EA3D03 /* TorchService.swift in Sources */,
+				EFE6E316621A996CE420968E /* TouchProjector.swift in Sources */,
+				0B9F128626CEE653C6829808 /* USDZSpinnerEntityFactory.swift in Sources */,
+				FC3900DA123CD013695B9E7E /* VectorMath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB55583F44A99960CAC6C42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C0254A08FFA64537AEEA95 /* AudioAndSettingsTests.swift in Sources */,
+				061BD58E9434433820D340F1 /* ContinuousSpinPhysicsTests.swift in Sources */,
+				8E22B2C6084EED657607F770 /* ContinuousTorqueAndDragTests.swift in Sources */,
+				410CB9733540B1E21FAA9932 /* LocalizationServiceTests.swift in Sources */,
+				FA0019D2BBD1DFE12D9143F0 /* ModelNormalizationAndResizeTests.swift in Sources */,
+				92636EB0AEE73928B3CC0895 /* RayVolumeHitTestingTests.swift in Sources */,
+				481CF93289C2FFEAF7E5EBF9 /* SafeTransformAndNumericalSafetyTests.swift in Sources */,
+				D675B3FD67B5E56CFD20170B /* SpinnerCatalogAndSelectionTests.swift in Sources */,
+				5F3628995E71BCBAD12B6675 /* SpinnerPhysicsEngineTests.swift in Sources */,
+				D19055C63B5F9E4DA30FA516 /* SwipeImpulseCalculatorTests.swift in Sources */,
+				FE4AD9D9CBB2781900E0C0CD /* TouchAndGestureTests.swift in Sources */,
+				F6476990F3D8AE905317FB3E /* VectorMathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86BD3334A2411E907ED6609F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B6E5EE4C7CD9F01B7F1B498 /* ARSpinner */;
+			targetProxy = D264B440086B01BB462CFDDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		27C84CF504A72ADE52C7EA6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQUX3GK3BM;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ARSpinner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arspinner.ARSpinner;
+				PRODUCT_NAME = ARSpinner;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		357C80126FD1BD864F3BD85B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6E61FDD3BAA5A8A0C42D13DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arspinner.ARSpinnerTests;
+				PRODUCT_NAME = ARSpinnerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARSpinner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARSpinner";
+			};
+			name = Debug;
+		};
+		B7BEE7EF656A5D9E40C341F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQUX3GK3BM;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ARSpinner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arspinner.ARSpinner;
+				PRODUCT_NAME = ARSpinner;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D115A84865CCD608FBB038F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB7B607B80EF91606F7D3D95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arspinner.ARSpinnerTests;
+				PRODUCT_NAME = ARSpinnerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARSpinner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARSpinner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16055EB89799B9569A181258 /* Build configuration list for PBXNativeTarget "ARSpinnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E61FDD3BAA5A8A0C42D13DF /* Debug */,
+				EB7B607B80EF91606F7D3D95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2EF7DA9622B7D84FDB9B6D48 /* Build configuration list for PBXProject "ARSpinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D115A84865CCD608FBB038F6 /* Debug */,
+				357C80126FD1BD864F3BD85B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AE8C3E53B8EB5DF2AAAC2380 /* Build configuration list for PBXNativeTarget "ARSpinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7BEE7EF656A5D9E40C341F0 /* Debug */,
+				27C84CF504A72ADE52C7EA6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 973B041DE9F4CCE52EAEBF7C /* Project object */;
+}
