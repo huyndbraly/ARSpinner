@@ -13,6 +13,7 @@
 		17919403C0376E5CBDF32D6E /* Spinner.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 60C46E49411D6920B1746908 /* Spinner.usdz */; };
 		18030E5E9D96EDA86507762D /* SafeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C27862B86E7180C9C99C8A /* SafeTransform.swift */; };
 		19125B0A93BC3608B7EA3D03 /* TorchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D86C415F2E073CF08F9D3 /* TorchService.swift */; };
+		19D05EFCCC4EFD06F6CB8B32 /* Spinner10.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6511FCB6A7646E47638C97C1 /* Spinner10.usdz */; };
 		1CDDF5AEEDCFB83BE8099C71 /* ARExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9302436EC385B8A617E32A /* ARExperienceView.swift */; };
 		1F443F4FFB16CBB01FDAFE6F /* InteractionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7211E3BA42DDBE1DE4618D /* InteractionStateMachine.swift */; };
 		2328161B8F7EB019E4F83ADB /* ARSpinnerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B861C1A026807F5F04192 /* ARSpinnerApp.swift */; };
@@ -37,6 +38,7 @@
 		5F3628995E71BCBAD12B6675 /* SpinnerPhysicsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B40DC77D1E4D4E949BB8F /* SpinnerPhysicsEngineTests.swift */; };
 		5F576235B6CFE7FE1E36099E /* SpinnerSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF61B935C5A1D4A1AB74918 /* SpinnerSceneController.swift */; };
 		650A33ADE6BBA211EE90308E /* SpinnerPhysicsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF222061221456A36155C5 /* SpinnerPhysicsEngine.swift */; };
+		66E97FB728C2B90F2A6A8A21 /* HomeSpinner3DHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0309130CD07BDD941408F /* HomeSpinner3DHeroView.swift */; };
 		6F8FF0EB869B9B47FB3D5538 /* ModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF725405D38D945FF7FE892C /* ModeSelector.swift */; };
 		718B7A8C63A9DF6B9106FD68 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E589F566CF0FAB6E8B86CA /* AppEnvironment.swift */; };
 		71ED512CA21DDD920DDC0CD0 /* ARRaycastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9975BC4C65473A8BFA2780CA /* ARRaycastManager.swift */; };
@@ -66,10 +68,12 @@
 		CB1DC4A33EF4BBC69ED12275 /* PhysicsParameterInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55BD96535669382118856 /* PhysicsParameterInfoSheet.swift */; };
 		CED35F3E64D0C86209B1E5E5 /* Spinner8.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F89416D07315AE92FEAA7BF0 /* Spinner8.usdz */; };
 		D19055C63B5F9E4DA30FA516 /* SwipeImpulseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E87F70B39A9ECBF1AC9762 /* SwipeImpulseCalculatorTests.swift */; };
+		D5F033187ED49AAE9430F675 /* ARPipelineOptimizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2618BA93F97EA864B14A93 /* ARPipelineOptimizationTests.swift */; };
 		D675B3FD67B5E56CFD20170B /* SpinnerCatalogAndSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE5B9F9935A0D7ECF5145F /* SpinnerCatalogAndSelectionTests.swift */; };
 		E35DE7F6A94F3F4E1AC27E42 /* ARPlacementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB58421FEFE250539D91B6D /* ARPlacementManager.swift */; };
 		ED78D9F4C282CC75F5280BF4 /* SpinnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF838637CD9C5FDF2212F86 /* SpinnerCardView.swift */; };
 		EFE6E316621A996CE420968E /* TouchProjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B5607CC1DAB56E56EB51D /* TouchProjector.swift */; };
+		F0BF45907BA2C8F61D1A0767 /* Spinner11.usdz in Resources */ = {isa = PBXBuildFile; fileRef = AE2E368D9A3643530A8E210E /* Spinner11.usdz */; };
 		F3982B475C75C6273E0EA6AC /* Spinner5.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 69CC7D09B282B2B0B31C3896 /* Spinner5.usdz */; };
 		F4D8F3117BB247F3E3BE66DB /* SpinnerSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70421F32A2A62C1EAB30E7F9 /* SpinnerSelectionSheet.swift */; };
 		F5172C6F606D564AEB27CC85 /* Spinner3.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 19DE433190D3D5662B1126A3 /* Spinner3.usdz */; };
@@ -94,11 +98,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AE0309130CD07BDD941408F /* HomeSpinner3DHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSpinner3DHeroView.swift; sourceTree = "<group>"; };
 		0BF838637CD9C5FDF2212F86 /* SpinnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCardView.swift; sourceTree = "<group>"; };
 		0FD1825FB78905BB68A38995 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		15C27862B86E7180C9C99C8A /* SafeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTransform.swift; sourceTree = "<group>"; };
 		1621DD38B93C3A6D22CD33E6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
-		1906E1BF9B22D0ECEDD4F1E2 /* ARSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1906E1BF9B22D0ECEDD4F1E2 /* ARSpinner.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ARSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE433190D3D5662B1126A3 /* Spinner3.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner3.usdz; sourceTree = "<group>"; };
 		21B80B6A24A44D941FC9B6BE /* SpinnerPhysicsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerPhysicsState.swift; sourceTree = "<group>"; };
 		27E43D77D070FC169F4A47A8 /* SwipeImpulseCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeImpulseCalculator.swift; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 		5739FBA3B59B3EE37ABDBB2B /* SpinnerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerMode.swift; sourceTree = "<group>"; };
 		5DF61B935C5A1D4A1AB74918 /* SpinnerSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSceneController.swift; sourceTree = "<group>"; };
 		60C46E49411D6920B1746908 /* Spinner.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner.usdz; sourceTree = "<group>"; };
+		6511FCB6A7646E47638C97C1 /* Spinner10.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner10.usdz; sourceTree = "<group>"; };
 		69CC7D09B282B2B0B31C3896 /* Spinner5.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner5.usdz; sourceTree = "<group>"; };
 		6BBCF7C2786BCD312034E824 /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
 		6F51FF66DFC6E7BDE28F0D5A /* LocalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationServiceTests.swift; sourceTree = "<group>"; };
@@ -140,8 +146,10 @@
 		9975BC4C65473A8BFA2780CA /* ARRaycastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRaycastManager.swift; sourceTree = "<group>"; };
 		997D86C415F2E073CF08F9D3 /* TorchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchService.swift; sourceTree = "<group>"; };
 		99F690A17775FDEB92729701 /* SpinnerCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCatalog.swift; sourceTree = "<group>"; };
+		9B2618BA93F97EA864B14A93 /* ARPipelineOptimizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPipelineOptimizationTests.swift; sourceTree = "<group>"; };
 		9BF08C3093D61DC028996EFB /* FrictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionModel.swift; sourceTree = "<group>"; };
 		9DC60ECB87CDCCD480ACA66C /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		AE2E368D9A3643530A8E210E /* Spinner11.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Spinner11.usdz; sourceTree = "<group>"; };
 		AE9302436EC385B8A617E32A /* ARExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExperienceView.swift; sourceTree = "<group>"; };
 		AF7211E3BA42DDBE1DE4618D /* InteractionStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionStateMachine.swift; sourceTree = "<group>"; };
 		B3171FFFCAC80355844EF825 /* PlacementIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementIndicatorView.swift; sourceTree = "<group>"; };
@@ -221,6 +229,7 @@
 		3412438CB741142EF1758F28 /* ARSpinnerTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B2618BA93F97EA864B14A93 /* ARPipelineOptimizationTests.swift */,
 				7992CEA493886A76BBD27226 /* AudioAndSettingsTests.swift */,
 				C43329FCD268D53C84DA9772 /* ContinuousSpinPhysicsTests.swift */,
 				4946F13BDDDBB4C1FCFF19DE /* ContinuousTorqueAndDragTests.swift */,
@@ -260,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0BF55FE84A49D244ECB3DC /* ARControlPanel.swift */,
+				0AE0309130CD07BDD941408F /* HomeSpinner3DHeroView.swift */,
 				DF725405D38D945FF7FE892C /* ModeSelector.swift */,
 				9DC60ECB87CDCCD480ACA66C /* PermissionView.swift */,
 				876F4B65DD4AD4C9292BA740 /* PhysicsConfigSheet.swift */,
@@ -299,6 +309,8 @@
 				2950D1B56D684729C7C90BB3 /* Spinner6.usdz */,
 				D26297F39D058B008205EE01 /* Spinner7.usdz */,
 				F89416D07315AE92FEAA7BF0 /* Spinner8.usdz */,
+				6511FCB6A7646E47638C97C1 /* Spinner10.usdz */,
+				AE2E368D9A3643530A8E210E /* Spinner11.usdz */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -441,6 +453,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					6B6E5EE4C7CD9F01B7F1B498 = {
+						DevelopmentTeam = TQUX3GK3BM;
+					};
+					E03648FEDC29C8726F217304 = {
+						DevelopmentTeam = TQUX3GK3BM;
+					};
+				};
 			};
 			buildConfigurationList = 2EF7DA9622B7D84FDB9B6D48 /* Build configuration list for PBXProject "ARSpinner" */;
 			developmentRegion = en;
@@ -469,6 +489,8 @@
 			files = (
 				9CA0A21F06503EE200D30220 /* Assets.xcassets in Resources */,
 				17919403C0376E5CBDF32D6E /* Spinner.usdz in Resources */,
+				19D05EFCCC4EFD06F6CB8B32 /* Spinner10.usdz in Resources */,
+				F0BF45907BA2C8F61D1A0767 /* Spinner11.usdz in Resources */,
 				F86AFE0CA4B0D7319E359372 /* Spinner2.usdz in Resources */,
 				F5172C6F606D564AEB27CC85 /* Spinner3.usdz in Resources */,
 				13F52BBC70ABC282857DDFFB /* Spinner4.usdz in Resources */,
@@ -499,6 +521,7 @@
 				A6E503B0BD6587823D72F791 /* AudioFeedbackService.swift in Sources */,
 				2DD5FC78E102B9ABB9DD38BE /* FrictionModel.swift in Sources */,
 				8C61D7C5B60E14FED10F7021 /* HapticFeedbackService.swift in Sources */,
+				66E97FB728C2B90F2A6A8A21 /* HomeSpinner3DHeroView.swift in Sources */,
 				9114C77BD2F6E3C79B3DE640 /* HomeView.swift in Sources */,
 				BD439A6E3D64310334643BED /* InertiaCalculator.swift in Sources */,
 				1F443F4FFB16CBB01FDAFE6F /* InteractionStateMachine.swift in Sources */,
@@ -546,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F033187ED49AAE9430F675 /* ARPipelineOptimizationTests.swift in Sources */,
 				54C0254A08FFA64537AEEA95 /* AudioAndSettingsTests.swift in Sources */,
 				061BD58E9434433820D340F1 /* ContinuousSpinPhysicsTests.swift in Sources */,
 				8E22B2C6084EED657607F770 /* ContinuousTorqueAndDragTests.swift in Sources */,
@@ -577,7 +601,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = TQUX3GK3BM;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ARSpinner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -627,6 +650,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TQUX3GK3BM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -674,7 +698,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = TQUX3GK3BM;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = ARSpinner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -724,6 +747,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TQUX3GK3BM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;

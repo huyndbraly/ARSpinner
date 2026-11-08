@@ -24,9 +24,10 @@ final class SpinnerPreviewCache: @unchecked Sendable {
 struct Spinner3DPreviewView: View {
     let fileURL: URL?
     let assetName: String
+    var isRotating: Bool = true
     
     var body: some View {
-        SceneKitPreviewRepresentable(fileURL: fileURL, assetName: assetName)
+        SceneKitPreviewRepresentable(fileURL: fileURL, assetName: assetName, isRotating: isRotating)
             .background(
                 RadialGradient(
                     gradient: Gradient(colors: [Color.white.opacity(0.06), Color.black.opacity(0.35)]),
@@ -44,14 +45,17 @@ struct Spinner3DPreviewView: View {
 private struct SceneKitPreviewRepresentable: UIViewRepresentable {
     let fileURL: URL?
     let assetName: String
+    let isRotating: Bool
+    
+    private static let rotationActionKey = "TurntableRotationAction"
     
     func makeUIView(context: Context) -> SCNView {
         let scnView = SCNView(frame: .zero)
         scnView.backgroundColor = .clear
-        // Disable heavy multisampling on high-DPI retina display to save significant Metal memory bandwidth
+        // Disable heavy multisampling on high-DPI retina display to save Metal memory bandwidth
         scnView.antialiasingMode = .none
-        // Cap preview FPS at 30 to prevent GPU contention with running ARKit/RealityKit session
-        scnView.preferredFramesPerSecond = 30
+        // Cap preview FPS at 24 to prevent GPU contention with running ARKit/RealityKit session
+        scnView.preferredFramesPerSecond = 24
         scnView.isUserInteractionEnabled = false // Gesture interactions handled at card level
         
         setupScene(on: scnView)
@@ -59,7 +63,21 @@ private struct SceneKitPreviewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: SCNView, context: Context) {
-        // Scene is static turntable; no continuous property mutation needed
+        guard let container = uiView.scene?.rootNode.childNode(withName: "TurntableContainer", recursively: false) else { return }
+        
+        let hasAction = container.action(forKey: Self.rotationActionKey) != nil
+        if isRotating && !hasAction {
+            uiView.rendersContinuously = true
+            let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2.0, z: 0, duration: 8.0)
+            container.runAction(SCNAction.repeatForever(rotation), forKey: Self.rotationActionKey)
+        } else if !isRotating && hasAction {
+            container.removeAction(forKey: Self.rotationActionKey)
+            uiView.rendersContinuously = false
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = 0.3
+            container.eulerAngles.y = 0.45
+            SCNTransaction.commit()
+        }
     }
     
     static func dismantleUIView(_ uiView: SCNView, coordinator: ()) {
@@ -113,24 +131,29 @@ private struct SceneKitPreviewRepresentable: UIViewRepresentable {
         
         let containerNode = SCNNode()
         containerNode.name = "TurntableContainer"
+        containerNode.eulerAngles.y = 0.45 // Default aesthetic hero angle
         scene.rootNode.addChildNode(containerNode)
         
         scnView.scene = scene
+        scnView.rendersContinuously = isRotating
         
         // 3. Check memory cache first for instant synchronous presentation
         let cacheKey = fileURL?.path ?? assetName
         if let cachedNode = SpinnerPreviewCache.shared.getNode(for: cacheKey) {
             containerNode.addChildNode(cachedNode)
-            let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2.0, z: 0, duration: 8.0)
-            containerNode.runAction(SCNAction.repeatForever(rotation))
+            if isRotating {
+                let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2.0, z: 0, duration: 8.0)
+                containerNode.runAction(SCNAction.repeatForever(rotation), forKey: Self.rotationActionKey)
+            }
             return
         }
         
         // 4. Asynchronously load USDZ geometry off the main thread to prevent UI freezing
         let url = fileURL
         let name = assetName
+        let shouldRotate = isRotating
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak containerNode] in
+        DispatchQueue.global(qos: .userInitiated).async { [weak containerNode, weak scnView] in
             var loadedScene: SCNScene?
             if let targetURL = url, FileManager.default.fileExists(atPath: targetURL.path) {
                 loadedScene = try? SCNScene(url: targetURL, options: nil)
@@ -195,11 +218,16 @@ private struct SceneKitPreviewRepresentable: UIViewRepresentable {
             SpinnerPreviewCache.shared.setNode(modelWrapper, for: cacheKey)
             
             // Attach to view on main thread
-            DispatchQueue.main.async { [weak containerNode] in
+            DispatchQueue.main.async { [weak containerNode, weak scnView] in
                 guard let container = containerNode else { return }
                 container.addChildNode(modelWrapper.clone())
-                let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2.0, z: 0, duration: 8.0)
-                container.runAction(SCNAction.repeatForever(rotation))
+                if shouldRotate {
+                    scnView?.rendersContinuously = true
+                    let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2.0, z: 0, duration: 8.0)
+                    container.runAction(SCNAction.repeatForever(rotation), forKey: Self.rotationActionKey)
+                } else {
+                    scnView?.rendersContinuously = false
+                }
             }
         }
     }

@@ -10,12 +10,16 @@ final class SpinnerCatalogAndSelectionTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Reset test UserDefaults key
+        // Reset test UserDefaults domain and key
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier ?? "com.arspinner.ARSpinner")
         UserDefaults.standard.removeObject(forKey: "com.arspinner.selected_spinner_model_id")
+        UserDefaults.standard.synchronize()
     }
     
     override func tearDown() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier ?? "com.arspinner.ARSpinner")
         UserDefaults.standard.removeObject(forKey: "com.arspinner.selected_spinner_model_id")
+        UserDefaults.standard.synchronize()
         super.tearDown()
     }
     
@@ -301,23 +305,85 @@ final class SpinnerCatalogAndSelectionTests: XCTestCase {
         }
         XCTAssertLessThan(sceneController.physicsEngine.state.angularVelocity, initialSpeed, "Natural spin must decelerate with bearing friction on new model.")
         
-        // 2. Continuous Spin: stacks velocity up to 2,000 RPM
+        // 2. Continuous Spin: stacks velocity up to 3,000 RPM
         sceneController.setSpinMode(.continuous)
         for _ in 0..<20 {
             sceneController.physicsEngine.applyAngularImpulse(0.005)
         }
         let capOmega = SpinMode.continuousMaxAngularVelocity
-        XCTAssertEqual(sceneController.physicsEngine.state.angularVelocity, capOmega, accuracy: Float(1e-3), "New model must accelerate up to continuous 2,000 RPM limit.")
-        XCTAssertEqual(sceneController.physicsEngine.state.rpm, 2000.0, accuracy: Float(1.0))
+        XCTAssertEqual(sceneController.physicsEngine.state.angularVelocity, capOmega, accuracy: Float(1e-3), "New model must accelerate up to continuous 3,000 RPM limit.")
+        XCTAssertEqual(sceneController.physicsEngine.state.rpm, 3000.0, accuracy: Float(1.0))
     }
     
     // MARK: - Auto-formatting Tests
     
     func testFriendlyNameFormatting() {
         XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "Spinner2.usdz"), "Spinner 2")
+        XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "Spinner10.usdz"), "Spinner 10")
+        XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "Spinner11.usdz"), "Spinner 11")
         XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "custom_brass_spinner.usdz"), "Custom Brass Spinner")
         XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "dragon-claw-spinner"), "Dragon Claw Spinner")
         XCTAssertEqual(SpinnerModelDescriptor.formatFriendlyName(from: "NeonTriSpinner.usdz"), "Neon Tri Spinner")
+    }
+    
+    // MARK: - Spinner 10 & 11 Curated Models Test
+    
+    func testSpinner10And11MetadataAndNormalization() {
+        let catalog = SpinnerCatalog(bundle: .main)
+        
+        // 1. Verify Spinner10 exists and has accurate curated specs
+        guard let model10 = catalog.model(withId: "Spinner10") else {
+            XCTFail("Spinner10 must be registered in catalog")
+            return
+        }
+        XCTAssertEqual(model10.id, "Spinner10")
+        XCTAssertEqual(model10.displayNameEn, "Shadow Dual-Blade Spinner")
+        XCTAssertEqual(model10.displayNameVi, "Con quay Lưỡi đôi Bóng đêm")
+        XCTAssertEqual(model10.wingCount, 2)
+        XCTAssertEqual(model10.estimatedMass, 0.076, accuracy: 1e-4)
+        XCTAssertFalse(model10.materialDescriptionEn.isEmpty)
+        XCTAssertFalse(model10.materialDescriptionVi.isEmpty)
+        
+        // 2. Verify Spinner11 exists and has accurate curated specs
+        guard let model11 = catalog.model(withId: "Spinner11") else {
+            XCTFail("Spinner11 must be registered in catalog")
+            return
+        }
+        XCTAssertEqual(model11.id, "Spinner11")
+        XCTAssertEqual(model11.displayNameEn, "Cobalt Cyber Tri-Spinner")
+        XCTAssertEqual(model11.displayNameVi, "Con quay Cyber Lam ngọc 3 cánh")
+        XCTAssertEqual(model11.wingCount, 3)
+        XCTAssertEqual(model11.estimatedMass, 0.084, accuracy: 1e-4)
+        XCTAssertFalse(model11.materialDescriptionEn.isEmpty)
+        XCTAssertFalse(model11.materialDescriptionVi.isEmpty)
+        
+        // 3. Normalization calculation test for Spinner10 (raw horizontal span 1.0m, thickness ~0.096m)
+        let extents10 = simd_float3(1.0000, 0.0964, 0.9974)
+        let center10 = simd_float3(0.0, -0.001, 0.0002)
+        guard let norm10 = USDZSpinnerEntityFactory.calculateNormalization(
+            extents: extents10,
+            center: center10,
+            targetDiameter: 0.076
+        ) else {
+            XCTFail("Normalization for Spinner10 failed")
+            return
+        }
+        XCTAssertEqual(norm10.scale * max(extents10.x, extents10.z), 0.076, accuracy: 1e-5)
+        XCTAssertTrue(norm10.scaledThickness > 0 && norm10.scaledThickness < 0.076)
+        
+        // 4. Normalization calculation test for Spinner11 (raw horizontal span 1.0m, thickness ~0.144m)
+        let extents11 = simd_float3(0.9836, 0.1442, 1.0000)
+        let center11 = simd_float3(0.0005, -0.0002, 0.0001)
+        guard let norm11 = USDZSpinnerEntityFactory.calculateNormalization(
+            extents: extents11,
+            center: center11,
+            targetDiameter: 0.076
+        ) else {
+            XCTFail("Normalization for Spinner11 failed")
+            return
+        }
+        XCTAssertEqual(norm11.scale * max(extents11.x, extents11.z), 0.076, accuracy: 1e-5)
+        XCTAssertTrue(norm11.scaledThickness > 0 && norm11.scaledThickness < 0.076)
     }
 }
 

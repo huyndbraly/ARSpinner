@@ -20,6 +20,9 @@ ARSpinner is a high-performance native iOS application built with **Swift, Swift
     - **Chrome Heavy Tri-Spinner (`Spinner5.usdz`)**: $D_{\text{raw}} = 1.001\text{ m}$, mass $0.085\text{ kg}$, 3 wings.
     - **Phantom Torq Spinner (`Spinner6.usdz`)**: $D_{\text{raw}} = 1.002\text{ m}$, mass $0.075\text{ kg}$, 3 wings.
     - **Dragonfire Aero Spinner (`Spinner7.usdz`)**: $D_{\text{raw}} = 0.986\text{ m}$, mass $0.079\text{ kg}$, 3 wings.
+    - **Vortex Quantum Spinner (`Spinner8.usdz`)**: $D_{\text{raw}} = 0.985\text{ m}$, mass $0.081\text{ kg}$, 3 wings (auto-oriented flat in $XZ$).
+    - **Shadow Dual-Blade Spinner (`Spinner10.usdz`)**: $D_{\text{raw}} = 1.000\text{ m}$, mass $0.076\text{ kg}$, 2 wings.
+    - **Cobalt Cyber Tri-Spinner (`Spinner11.usdz`)**: $D_{\text{raw}} = 1.000\text{ m}$, mass $0.084\text{ kg}$, 3 wings.
     - **Dynamic Custom Models**: Automatically detects and formats any additional `.usdz` dropped into `ARSpinner/Resources`.
   - **In-App 3D Selection Sheet (`SpinnerSelectionSheet.swift`)**:
     - 2-column dark-mode card grid featuring isolated, low-overhead SceneKit 3D turntable previews (`Spinner3DPreviewView.swift`) with realistic studio rim lighting.

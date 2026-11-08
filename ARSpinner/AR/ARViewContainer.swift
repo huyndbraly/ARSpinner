@@ -19,6 +19,12 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         arView.automaticallyConfigureSession = false
         
+        // Optimize rendering pipeline for thermals, battery life, and low-end devices
+        arView.renderOptions.insert([
+            .disableDepthOfField,
+            .disableMotionBlur
+        ])
+        
         let coordinator = context.coordinator
         coordinator.setup(with: arView)
         
@@ -125,9 +131,7 @@ struct ARViewContainer: UIViewRepresentable {
                     targetDiameter: self.viewModel.spinnerDiameter
                 ) ?? false
                 if success {
-                    self.hapticService?.onSelection()
-                    self.viewModel.isPlaced = true
-                    self.viewModel.canPlace = false
+                    self.handlePlacementSuccess()
                 }
             }
             self.gestureController = gestures
@@ -153,15 +157,23 @@ struct ARViewContainer: UIViewRepresentable {
             // Start AR World Tracking Session
             startARSession(on: arView)
             
-            // 7. Subscribe to scene update to refresh placement indicator
+            // 7. Subscribe to scene update to refresh placement indicator at native 60–120 Hz
+            // Runs synchronously with display refresh rate so the placement reticle glides smoothly without ghosting.
+            // Completely skipped once placed to keep CPU/GPU cool during gameplay.
             frameSubscription = arView.scene.subscribe(to: SceneEvents.Update.self) { [weak self] _ in
                 guard let self = self else { return }
+                // Completely skip raycasting and indicator updates once placed!
+                if self.viewModel.isPlaced { return }
+                
                 self.placementManager?.updatePlacementState()
                 let hasSurface = self.placementManager?.latestSurfaceTransform != nil
                 self.viewModel.updatePlacementReadiness(hasSurface: hasSurface)
             }
             
-            // 8. Wire ViewModel Action Callbacks
+            // 8. Observe App Lifecycle to pause/resume AR session & audio
+            setupAppLifecycleObservers()
+            
+            // 9. Wire ViewModel Action Callbacks
             bindViewModelActions()
         }
         
@@ -179,6 +191,56 @@ struct ARViewContainer: UIViewRepresentable {
             AppLogger.ar.info("ARSession started with horizontal plane detection.")
         }
         
+        private func handlePlacementSuccess() {
+            hapticService?.onSelection()
+            viewModel.isPlaced = true
+            viewModel.canPlace = false
+            optimizeSessionAfterPlacement()
+        }
+        
+        /// Turns off continuous plane detection once the spinner is placed, preserving tracking while eliminating computer vision overhead.
+        private func optimizeSessionAfterPlacement() {
+            guard let arView = arView, ARWorldTrackingConfiguration.isSupported else { return }
+            let config = ARWorldTrackingConfiguration()
+            config.planeDetection = [] // Turn off plane detection
+            config.environmentTexturing = .automatic
+            arView.session.run(config)
+            AppLogger.ar.info("Optimized ARSession for placed spinner: plane detection suspended.")
+        }
+        
+        /// Re-activates plane detection when spinner is reset or mode is switched.
+        private func resumePlaneDetectionForPlacement() {
+            guard let arView = arView, ARWorldTrackingConfiguration.isSupported else { return }
+            let config = ARWorldTrackingConfiguration()
+            config.planeDetection = [.horizontal]
+            config.environmentTexturing = .automatic
+            arView.session.run(config)
+            AppLogger.ar.info("Resumed ARSession horizontal plane detection.")
+        }
+        
+        private func setupAppLifecycleObservers() {
+            NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+                .sink { [weak self] _ in
+                    self?.audioService?.pause()
+                    self?.arView?.session.pause()
+                    AppLogger.ar.info("App resigned active: ARSession and audio paused.")
+                }
+                .store(in: &cancellables)
+            
+            NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+                .sink { [weak self] _ in
+                    guard let self = self, let arView = self.arView else { return }
+                    if self.viewModel.isPlaced {
+                        self.optimizeSessionAfterPlacement()
+                    } else {
+                        self.startARSession(on: arView)
+                    }
+                    self.audioService?.resume()
+                    AppLogger.ar.info("App became active: ARSession and audio resumed.")
+                }
+                .store(in: &cancellables)
+        }
+        
         private func bindViewModelActions() {
             viewModel.onPlaceRequested = { [weak self] in
                 guard let self = self else { return }
@@ -186,9 +248,7 @@ struct ARViewContainer: UIViewRepresentable {
                     targetDiameter: self.viewModel.spinnerDiameter
                 ) ?? false
                 if success {
-                    self.hapticService?.onSelection()
-                    self.viewModel.isPlaced = true
-                    self.viewModel.canPlace = false
+                    self.handlePlacementSuccess()
                 }
             }
             
@@ -197,6 +257,7 @@ struct ARViewContainer: UIViewRepresentable {
                 self?.sceneController?.physicsEngine.stopImmediately()
                 self?.audioService?.stop()
                 self?.hapticService?.onSelection()
+                self?.resumePlaneDetectionForPlacement()
             }
             
             viewModel.onModeChanged = { [weak self] mode in
@@ -204,6 +265,7 @@ struct ARViewContainer: UIViewRepresentable {
                 self?.sceneController?.physicsEngine.stopImmediately()
                 self?.audioService?.stop()
                 self?.hapticService?.onSelection()
+                self?.resumePlaneDetectionForPlacement()
             }
             
             viewModel.onSpinModeChanged = { [weak self] spinMode in

@@ -57,14 +57,28 @@ struct SpinnerHUD: View {
                         }
                         
                         if state.spinMode == .continuous {
-                            HStack(alignment: .firstTextBaseline, spacing: 2) {
+                            let isRedline = abs(state.rpm) >= (SpinMode.continuousMaxRPM * 0.90)
+                            let isMaxed = abs(state.rpm) >= (SpinMode.continuousMaxRPM - 15.0)
+                            
+                            HStack(alignment: .firstTextBaseline, spacing: 3) {
                                 Text("\(Int(abs(state.rpm).rounded()))")
                                     .font(.system(size: 26, weight: .bold, design: .rounded))
                                     .monospacedDigit()
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(isMaxed ? .red : (isRedline ? .orange : .primary))
+                                
                                 Text(" / \(Int(SpinMode.continuousMaxRPM)) \(localization.tr(.rpm))")
                                     .font(.system(size: 12, weight: .semibold, design: .rounded))
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(isRedline ? .orange.opacity(0.85) : .secondary)
+                                
+                                if isMaxed {
+                                    Text("MAX")
+                                        .font(.system(size: 9, weight: .black, design: .rounded))
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal, 4)
+                                        .padding(.vertical, 1)
+                                        .background(Color.red)
+                                        .clipShape(Capsule())
+                                }
                             }
                         } else {
                             HStack(alignment: .firstTextBaseline, spacing: 2) {
@@ -135,10 +149,11 @@ struct SpinnerHUD: View {
                                     .frame(height: 4)
                                 
                                 let ratio = min(1.0, max(0.0, CGFloat(abs(state.rpm) / SpinMode.continuousMaxRPM)))
+                                let isRedline = ratio >= 0.90
                                 Capsule()
                                     .fill(
                                         LinearGradient(
-                                            colors: [.cyan, .blue, .purple],
+                                            colors: isRedline ? [.cyan, .purple, .orange, .red] : [.cyan, .blue, .purple],
                                             startPoint: .leading,
                                             endPoint: .trailing
                                         )
@@ -150,12 +165,13 @@ struct SpinnerHUD: View {
                         .frame(height: 4)
                         
                         HStack(spacing: 4) {
-                            Image(systemName: "gauge.with.needle.fill")
+                            let isRedline = abs(state.rpm) >= (SpinMode.continuousMaxRPM * 0.90)
+                            Image(systemName: isRedline ? "flame.fill" : "gauge.with.needle.fill")
                                 .font(.system(size: 10))
-                                .foregroundColor(.cyan)
-                            Text(localization.tr(.continuousSpinInstruction))
-                                .font(.system(size: 10, weight: .medium, design: .rounded))
-                                .foregroundColor(.cyan.opacity(0.9))
+                                .foregroundColor(isRedline ? .orange : .cyan)
+                            Text(isRedline ? "HYPER-SPEED • 3,000 RPM REDLINE" : localization.tr(.continuousSpinInstruction))
+                                .font(.system(size: 10, weight: isRedline ? .bold : .medium, design: .rounded))
+                                .foregroundColor(isRedline ? .orange : .cyan.opacity(0.9))
                         }
                     }
                     .padding(.top, 2)

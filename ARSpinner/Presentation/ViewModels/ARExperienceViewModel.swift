@@ -140,7 +140,9 @@ final class ARExperienceViewModel: ObservableObject {
         if self.selectedSpinMode != state.spinMode {
             self.selectedSpinMode = state.spinMode
         }
-        self.spinnerState = state
+        if self.spinnerState != state {
+            self.spinnerState = state
+        }
     }
     
     func stopSpinner() {

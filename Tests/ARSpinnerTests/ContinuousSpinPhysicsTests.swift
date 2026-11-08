@@ -41,26 +41,26 @@ final class ContinuousSpinPhysicsTests: XCTestCase {
         XCTAssertGreaterThan(speed3, speed2)
     }
     
-    // MARK: - 2,000 RPM Cap Verification
+    // MARK: - 3,000 RPM Cap Verification
     
     func testContinuousSpinCapsAt2000RPM() {
         engine.setSpinMode(.continuous)
-        let capOmega = SpinMode.continuousMaxAngularVelocity // ~209.4395 rad/s = 2,000 RPM
+        let capOmega = SpinMode.continuousMaxAngularVelocity // ~314.159 rad/s = 3,000 RPM
         
         // Apply huge positive impulse
-        engine.applyAngularImpulse(10.0)
+        engine.applyAngularImpulse(15.0)
         XCTAssertEqual(engine.state.angularVelocity, capOmega, accuracy: Float(1e-4))
-        XCTAssertEqual(engine.state.rpm, 2000.0, accuracy: Float(1.0), "RPM must cap at 2,000 RPM.")
+        XCTAssertEqual(engine.state.rpm, 3000.0, accuracy: Float(1.0), "RPM must cap at 3,000 RPM.")
         
-        // Even with another impulse, speed cannot exceed 2,000 RPM
-        engine.applyAngularImpulse(1.0)
+        // Even with another impulse, speed cannot exceed 3,000 RPM
+        engine.applyAngularImpulse(2.0)
         XCTAssertEqual(engine.state.angularVelocity, capOmega, accuracy: Float(1e-4))
         
         // Test negative (clockwise) direction clamping
         engine.stopImmediately()
-        engine.applyAngularImpulse(-10.0)
+        engine.applyAngularImpulse(-15.0)
         XCTAssertEqual(engine.state.angularVelocity, -capOmega, accuracy: Float(1e-4))
-        XCTAssertEqual(abs(engine.state.rpm), 2000.0, accuracy: Float(1.0))
+        XCTAssertEqual(abs(engine.state.rpm), 3000.0, accuracy: Float(1.0))
     }
     
     // MARK: - High RPM Non-Braking Verification
@@ -153,9 +153,9 @@ final class ContinuousSpinPhysicsTests: XCTestCase {
         XCTAssertGreaterThan(recordedRPMs[4], 400.0, "RPM after 5 strokes must comfortably exceed 400 RPM (no 200 RPM stall).")
         // Stroke 10 > Stroke 5
         XCTAssertGreaterThan(recordedRPMs[9], recordedRPMs[4])
-        // Sequence approaches 2,000 RPM ceiling
-        XCTAssertGreaterThan(recordedRPMs[9], 1000.0, "10 consecutive strokes must drive spinner well over 1,000 RPM towards 2,000 RPM.")
-        XCTAssertLessThanOrEqual(recordedRPMs[9], 2000.0)
+        // Sequence approaches 3,000 RPM ceiling
+        XCTAssertGreaterThan(recordedRPMs[9], 1000.0, "10 consecutive strokes must drive spinner well over 1,000 RPM towards 3,000 RPM.")
+        XCTAssertLessThanOrEqual(recordedRPMs[9], 3000.0)
     }
     
     // MARK: - Counter Swipe Braking & Reversal

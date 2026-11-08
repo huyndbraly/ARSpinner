@@ -16,7 +16,8 @@ struct SpinnerCardView: View {
                 ZStack(alignment: .topTrailing) {
                     Spinner3DPreviewView(
                         fileURL: model.fileURL,
-                        assetName: model.assetName
+                        assetName: model.assetName,
+                        isRotating: isSelected
                     )
                     .frame(height: 125)
                     

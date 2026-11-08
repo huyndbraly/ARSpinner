@@ -3,6 +3,28 @@ import RealityKit
 import simd
 import Combine
 
+/// In-memory cache holding loaded RealityKit template entities to eliminate repeated USDZ file loads and disk I/O.
+final class RealityKitEntityCache: @unchecked Sendable {
+    static let shared = RealityKitEntityCache()
+    private let cache = NSCache<NSString, Entity>()
+    
+    private init() {
+        cache.countLimit = 15
+    }
+    
+    func getEntity(for key: String) -> Entity? {
+        return cache.object(forKey: key as NSString)?.clone(recursive: true)
+    }
+    
+    func setEntity(_ entity: Entity, for key: String) {
+        cache.setObject(entity.clone(recursive: true), forKey: key as NSString)
+    }
+    
+    func clear() {
+        cache.removeAllObjects()
+    }
+}
+
 /// Normalizes and manages external USDZ spinner models with precise pivot centering and interactive scaling.
 @MainActor
 final class USDZSpinnerEntityFactory: SpinnerEntityProviding {
@@ -57,6 +79,11 @@ final class USDZSpinnerEntityFactory: SpinnerEntityProviding {
         let diameter = (targetDiameter.isFinite && targetDiameter > 0.01) ? targetDiameter : currentDiameter
         self.currentDiameter = diameter
         
+        let cacheKey = modelDescriptor.fileURL?.path ?? modelDescriptor.assetName
+        if let cachedEntity = RealityKitEntityCache.shared.getEntity(for: cacheKey) {
+            return buildNormalizedHierarchy(from: cachedEntity, targetDiameter: diameter)
+        }
+        
         let modelEntity: Entity
         if let url = modelDescriptor.fileURL, FileManager.default.fileExists(atPath: url.path) {
             modelEntity = try await Self.loadEntityAsync(from: url)
@@ -64,6 +91,7 @@ final class USDZSpinnerEntityFactory: SpinnerEntityProviding {
             modelEntity = try await Self.loadEntityNamedAsync(modelDescriptor.assetName)
         }
         
+        RealityKitEntityCache.shared.setEntity(modelEntity, for: cacheKey)
         return buildNormalizedHierarchy(from: modelEntity, targetDiameter: diameter)
     }
     
@@ -91,6 +119,17 @@ final class USDZSpinnerEntityFactory: SpinnerEntityProviding {
     }
     
     private static func loadEntityNamedAsync(_ name: String) async throws -> Entity {
+        do {
+            return try await loadEntityNamedRawAsync(name)
+        } catch {
+            if !name.hasSuffix(".usdz") {
+                return try await loadEntityNamedRawAsync("\(name).usdz")
+            }
+            throw error
+        }
+    }
+    
+    private static func loadEntityNamedRawAsync(_ name: String) async throws -> Entity {
         try await withCheckedThrowingContinuation { continuation in
             var cancellable: AnyCancellable?
             var hasResumed = false
@@ -119,14 +158,21 @@ final class USDZSpinnerEntityFactory: SpinnerEntityProviding {
         let diameter = (targetDiameter.isFinite && targetDiameter > 0.01) ? targetDiameter : currentDiameter
         self.currentDiameter = diameter
         
+        let cacheKey = modelDescriptor.fileURL?.path ?? modelDescriptor.assetName
+        if let cachedEntity = RealityKitEntityCache.shared.getEntity(for: cacheKey) {
+            return buildNormalizedHierarchy(from: cachedEntity, targetDiameter: diameter)
+        }
+        
         // 1. Attempt to load from fileURL if available on disk
         if let url = modelDescriptor.fileURL, FileManager.default.fileExists(atPath: url.path),
            let modelEntity = try? Entity.load(contentsOf: url) {
+            RealityKitEntityCache.shared.setEntity(modelEntity, for: cacheKey)
             return buildNormalizedHierarchy(from: modelEntity, targetDiameter: diameter)
         }
         
         // 2. Attempt to load by named asset from application bundle
-        if let modelEntity = try? Entity.load(named: modelDescriptor.assetName) {
+        if let modelEntity = (try? Entity.load(named: modelDescriptor.assetName)) ?? (try? Entity.load(named: "\(modelDescriptor.assetName).usdz")) {
+            RealityKitEntityCache.shared.setEntity(modelEntity, for: cacheKey)
             return buildNormalizedHierarchy(from: modelEntity, targetDiameter: diameter)
         }
         

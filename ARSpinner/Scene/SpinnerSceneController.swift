@@ -58,6 +58,9 @@ final class SpinnerSceneController {
                 configuration: configuration
             )
         }
+        self.updateController.currentModeProvider = { [weak self] in
+            self?.currentMode ?? .surface
+        }
     }
     
     // MARK: - Scene Actions

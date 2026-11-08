@@ -62,7 +62,6 @@ final class AudioFeedbackService: AudioFeedbackProviding {
         setupAudioSession()
         generateProceduralBuffers()
         setupAudioGraph()
-        startSmoothingTimer()
     }
     
     deinit {
@@ -178,6 +177,7 @@ final class AudioFeedbackService: AudioFeedbackProviding {
             silenceEngine()
         } else {
             targetRPM = rpm
+            startSmoothingTimerIfNeeded()
         }
     }
     
@@ -186,18 +186,27 @@ final class AudioFeedbackService: AudioFeedbackProviding {
         // Intentionally no-op to eliminate artificial click/tap noise
     }
     
-    // MARK: - Periodic Smoothing Loop (Independent from Render Loop)
+    // MARK: - Periodic Smoothing Loop (Active only during audible rotation)
     
-    private func startSmoothingTimer() {
+    private func startSmoothingTimerIfNeeded() {
+        guard smoothingTimer == nil, !isMuted else { return }
         smoothingTimer = Timer.scheduledTimer(withTimeInterval: 0.033, repeats: true) { [weak self] _ in
-            Task { @MainActor [weak self] in
+            MainActor.assumeIsolated {
                 self?.applySmoothedParameters()
             }
         }
     }
     
+    private func stopSmoothingTimer() {
+        smoothingTimer?.invalidate()
+        smoothingTimer = nil
+    }
+    
     private func applySmoothedParameters() {
-        guard !isMuted else { return }
+        guard !isMuted else {
+            silenceEngine()
+            return
+        }
         
         // Exponential moving average for smooth transitions without zipper clicks
         let alpha: Float = 0.18
@@ -207,9 +216,14 @@ final class AudioFeedbackService: AudioFeedbackProviding {
             // Below audible threshold: smoothly ramp to silence
             currentGain = max(0.0, currentGain - 0.08)
             playerNode.volume = currentGain * volume
-            if currentGain <= 0.001 && isLoopPlaying {
-                playerNode.pause()
-                isLoopPlaying = false
+            if currentGain <= 0.001 {
+                if isLoopPlaying {
+                    playerNode.pause()
+                    isLoopPlaying = false
+                }
+                if targetRPM < 15.0 {
+                    stopSmoothingTimer()
+                }
             }
             return
         }
@@ -223,21 +237,21 @@ final class AudioFeedbackService: AudioFeedbackProviding {
         }
         
         // Map RPM to physical acoustics:
-        // RPM range: 15 to 1,200 RPM
-        let normRPM = min(1.0, max(0.0, (currentRPM - 15.0) / 1185.0))
+        // Expanded RPM range: 15 to 3,000 RPM (Supercharged Turbo Bearing Acoustics)
+        let normRPM = min(1.0, max(0.0, (currentRPM - 15.0) / 2985.0))
         
         // Target gain: expands dynamically with speed
         let targetGain = 0.15 + 0.85 * sqrt(normRPM)
         currentGain = currentGain + alpha * (targetGain - currentGain)
         playerNode.volume = currentGain * volume
         
-        // Target pitch: deep mechanical rumble (-800 cents) at 50 RPM climbing to sharp ceramic whir (+1400 cents) at 1200 RPM
-        let targetPitchCents = -800.0 + (2200.0 * normRPM)
+        // Target pitch: deep mechanical rumble (-800 cents) at 50 RPM climbing to sharp supersonic ceramic whir (+1800 cents) at 3,000 RPM
+        let targetPitchCents = -800.0 + (2600.0 * normRPM)
         currentPitchCents = currentPitchCents + alpha * (targetPitchCents - currentPitchCents)
         timePitchUnit.pitch = currentPitchCents
         
-        // Target playback rate: 0.6x at low speeds to 2.2x at top speed
-        let targetRate = 0.65 + (1.55 * normRPM)
+        // Target playback rate: 0.65x at low speeds to 2.5x at top speed (3,000 RPM)
+        let targetRate = 0.65 + (1.85 * normRPM)
         currentPlaybackRate = currentPlaybackRate + alpha * (targetRate - currentPlaybackRate)
         timePitchUnit.rate = currentPlaybackRate
     }
@@ -253,6 +267,7 @@ final class AudioFeedbackService: AudioFeedbackProviding {
             playerNode.pause()
             isLoopPlaying = false
         }
+        stopSmoothingTimer()
     }
     
     func pause() {

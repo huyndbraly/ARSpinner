@@ -36,6 +36,8 @@ enum LocKey: String, CaseIterable, Sendable {
     case surfaceMidAirSubtitle
     case swipeInteractionTitle
     case swipeInteractionSubtitle
+    case swipeToSpinPrompt
+    case tapToSwitchModel
     
     // Modes
     case modeSurface
@@ -216,6 +218,14 @@ final class LocalizationService: ObservableObject {
         .swipeInteractionSubtitle: [
             .en: "Calculates torque from finger speed and distance from center.",
             .vi: "Mô men quay tính từ vận tốc ngón tay và cánh tay đòn tiếp xúc."
+        ],
+        .swipeToSpinPrompt: [
+            .en: "Swipe spinner to spin • Drag background to orbit 3D",
+            .vi: "Vuốt con quay để quay • Kéo nền xoay 3D"
+        ],
+        .tapToSwitchModel: [
+            .en: "Tap to switch 3D model",
+            .vi: "Nhấn để đổi con quay 3D"
         ],
         
         // Modes

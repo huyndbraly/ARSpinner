@@ -12,10 +12,10 @@ enum SpinMode: String, CaseIterable, Identifiable, Sendable {
     
     var id: String { rawValue }
     
-    /// Hard maximum RPM ceiling for continuous spin mode (2,000 RPM).
-    static let continuousMaxRPM: Float = 2000.0
+    /// Hard maximum RPM ceiling for continuous spin mode (3,000 RPM).
+    static let continuousMaxRPM: Float = 3000.0
     
-    /// Hard maximum angular velocity in rad/s (2000 * 2π / 60 ≈ 209.43951 rad/s).
+    /// Hard maximum angular velocity in rad/s (3000 * 2π / 60 ≈ 314.15926 rad/s).
     static let continuousMaxAngularVelocity: Float = continuousMaxRPM * (Float.pi * 2.0 / 60.0)
 }
 

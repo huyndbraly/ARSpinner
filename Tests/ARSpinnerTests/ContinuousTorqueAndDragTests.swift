@@ -165,16 +165,16 @@ final class ContinuousTorqueAndDragTests: XCTestCase {
             engine.update(deltaTime: dt, currentTime: simTime)
         }
         
-        // Must have reached the hard continuous spin ceiling of 2,000 RPM
+        // Must have reached the hard continuous spin ceiling of 3,000 RPM
         let capOmega = SpinMode.continuousMaxAngularVelocity
         XCTAssertEqual(engine.state.angularVelocity, capOmega, accuracy: Float(1e-3))
-        XCTAssertEqual(engine.state.rpm, 2000.0, accuracy: Float(1.0), "Continuous spin must strictly cap at 2,000 RPM.")
+        XCTAssertEqual(engine.state.rpm, 3000.0, accuracy: Float(1.0), "Continuous spin must strictly cap at 3,000 RPM.")
         
         // When input torque ceases, spinner naturally decelerates
         engine.clearInputTorque()
         // Wait beyond 0.5s grace period so normal friction takes effect
         engine.update(deltaTime: 0.8, currentTime: simTime + 0.8)
-        XCTAssertLessThan(engine.state.rpm, 2000.0, "When user ceases swiping, RPM must begin natural friction deceleration.")
+        XCTAssertLessThan(engine.state.rpm, 3000.0, "When user ceases swiping, RPM must begin natural friction deceleration.")
     }
     
     func testInputTorqueDecaysAutomaticallyIfTouchEventsStopWithoutLifting() {

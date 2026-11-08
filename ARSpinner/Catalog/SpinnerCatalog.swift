@@ -81,6 +81,22 @@ final class SpinnerCatalog: ObservableObject {
             materialEn: "Tungsten Carbide",
             materialVi: "Hợp kim Vonfram Tungsten",
             wings: 3
+        ),
+        "Spinner10": (
+            en: "Shadow Dual-Blade Spinner",
+            vi: "Con quay Lưỡi đôi Bóng đêm",
+            mass: 0.076,
+            materialEn: "Obsidian & Carbon Alloy",
+            materialVi: "Hợp kim Hắc diện thạch & Carbon",
+            wings: 2
+        ),
+        "Spinner11": (
+            en: "Cobalt Cyber Tri-Spinner",
+            vi: "Con quay Cyber Lam ngọc 3 cánh",
+            mass: 0.084,
+            materialEn: "Cobalt Titanium Hybrid",
+            materialVi: "Hợp kim Cobalt Titanium",
+            wings: 3
         )
     ]
     
